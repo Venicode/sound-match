@@ -1,17 +1,45 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import Calculos.FiltroAvaliacao;
+import models.Music;
+import models.Podcast;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Music novaMusica = new Music();
+        novaMusica.setTitle("Sea Shanty Medley");
+        novaMusica.setAlbum("Single");
+        novaMusica.setBand("Home Free");
+        novaMusica.setDuration(200);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 0; i < 2000; i++) {
+            novaMusica.like();
+        }
+        for (int i = 0; i < 2000; i++) {
+            novaMusica.play();
+        }
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        FiltroAvaliacao novoFiltro = new FiltroAvaliacao();
+
+        System.out.println("Música: " + novaMusica.getTitle());
+        System.out.println("Total de likes:" + novaMusica.getTotalLikes());
+        System.out.println("Total de Views:" + novaMusica.getTotalViews());
+        novoFiltro.avalia(novaMusica);
+
+        Podcast novoPodcast = new Podcast();
+        novoPodcast.setHost("Apresentador");
+        novoPodcast.setGuest("Convidado");
+        novoPodcast.setTotalEpisodes(12);
+        novoPodcast.setTitle("NerdCast");
+
+        for (int i = 0; i < 1000; i++) {
+            novoPodcast.like();
+        }
+        for (int i = 0; i < 1000; i++) {
+            novoPodcast.play();
+        }
+
+        System.out.println("Podcast: " + novoPodcast.getTitle());
+        System.out.println("Total de likes:" + novoPodcast.getTotalLikes());
+        System.out.println("Total de Views:" + novoPodcast.getTotalViews());
+        novoFiltro.avalia(novoPodcast);
         }
     }
-}
